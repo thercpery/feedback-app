@@ -1,10 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { PropTypes } from 'prop-types';
 
-const FeedbackItem = () => {
-  const [rating, setRating] = useState(7);
-  const [text, setText] = useState('This is an example of a feedback item');
-  
+const FeedbackItem = ({ item }) => {
+  const { rating, text } = item;
   return (
     <div className='card'>
       <div className="num-display">{rating}</div>
@@ -12,5 +10,9 @@ const FeedbackItem = () => {
     </div>
   )
 }
+
+FeedbackItem.propTypes = {
+  item: PropTypes.object,
+};
 
 export default FeedbackItem;
